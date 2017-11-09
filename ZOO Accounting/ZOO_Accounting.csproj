@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD43277D-6FB1-4891-B532-C2F875D47AC2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZOO_Accounting</RootNamespace>
+    <AssemblyName>ZOO_Accounting</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\Commands.cs" />
+    <Compile Include="Helpers\EnumBindingSourceExtension.cs" />
+    <Compile Include="Helpers\EnumDescriptionTypeConverter.cs" />
+    <Compile Include="Helpers\IRegexChecker.cs" />
+    <Compile Include="Helpers\NonEmptyRegexChecker.cs" />
+    <Compile Include="Helpers\NumbersOnlyRegexChecker.cs" />
+    <Compile Include="Helpers\ValidNameRegexChecker.cs" />
+    <Compile Include="Helpers\TenCharRegexChecker.cs" />
+    <Compile Include="Model\Abstract\IRepository.cs" />
+    <Compile Include="Model\Concrete\EFDbContext.cs" />
+    <Compile Include="Model\Concrete\EFRepository.cs" />
+    <Compile Include="Model\Concrete\Identity.cs" />
+    <Compile Include="Model\Concrete\Logger.cs" />
+    <Compile Include="Model\Entities\Animal.cs" />
+    <Compile Include="Model\Entities\AnimalKind.cs" />
+    <Compile Include="Model\Entities\Aviary.cs" />
+    <Compile Include="Model\Entities\AviaryType.cs" />
+    <Compile Include="Model\Entities\Inventory.cs" />
+    <Compile Include="Model\Entities\InventoryType.cs" />
+    <Compile Include="Model\Entities\LogRecord.cs" />
+    <Compile Include="Model\Entities\Ration.cs" />
+    <Compile Include="Model\Entities\User.cs" />
+    <Compile Include="ViewModel\AviaryTypeViewModel.cs" />
+    <Compile Include="ViewModel\AviaryViewModel.cs" />
+    <Compile Include="ViewModel\Creators\CreateAnimalKindViewModel.cs" />
+    <Compile Include="ViewModel\Creators\CreateAviaryTypeViewModel.cs" />
+    <Compile Include="ViewModel\Creators\CreateAviaryViewModel.cs" />
+    <Compile Include="ViewModel\Creators\CreateInventoryViewModel.cs" />
+    <Compile Include="ViewModel\Creators\CreateRationViewModel.cs" />
+    <Compile Include="ViewModel\Creators\CreateInventoryTypeViewModel.cs" />
+    <Compile Include="ViewModel\Abstract\ICreator.cs" />
+    <Compile Include="ViewModel\Factory\ViewModel.cs" />
+    <Compile Include="ViewModel\InventoryTypeViewModel.cs" />
+    <Compile Include="ViewModel\InventoryViewModel.cs" />
+    <Compile Include="ViewModel\Abstract\IViewModel.cs" />
+    <Compile Include="ViewModel\RationViewModel.cs" />
+    <Compile Include="ViewModel\Updaters\UpdateAnimalKindViewModel.cs" />
+    <Compile Include="ViewModel\Updaters\UpdateAnimalViewModel.cs" />
+    <Compile Include="ViewModel\Updaters\UpdateAviaryTypeViewModel.cs" />
+    <Compile Include="ViewModel\Updaters\UpdateAviaryViewModel.cs" />
+    <Compile Include="ViewModel\Updaters\UpdateInventoryViewModel.cs" />
+    <Compile Include="ViewModel\Updaters\UpdateRationViewModel.cs" />
+    <Compile Include="ViewModel\Abstract\IUpdater.cs" />
+    <Compile Include="ViewModel\Updaters\UpdateInventoryTypeViewModel.cs" />
+    <Compile Include="View\Authorize.xaml.cs">
+      <DependentUpon>Authorize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Aviaries.xaml.cs">
+      <DependentUpon>Aviaries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AviaryTypes.xaml.cs">
+      <DependentUpon>AviaryTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Creators\CreateAnimal.xaml.cs">
+      <DependentUpon>CreateAnimal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Creators\CreateAnimalKind.xaml.cs">
+      <DependentUpon>CreateAnimalKind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Creators\CreateAviary.xaml.cs">
+      <DependentUpon>CreateAviary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Creators\CreateAviaryType.xaml.cs">
+      <DependentUpon>CreateAviaryType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Creators\CreateInventory.xaml.cs">
+      <DependentUpon>CreateInventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Creators\CreateRation.xaml.cs">
+      <DependentUpon>CreateRation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Creators\CreateInventoryType.xaml.cs">
+      <DependentUpon>CreateInventoryType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Inventories.xaml.cs">
+      <DependentUpon>Inventories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InventoryTypes.xaml.cs">
+      <DependentUpon>InventoryTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rations.xaml.cs">
+      <DependentUpon>Rations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unauthorized\UnauthAnimalKinds.xaml.cs">
+      <DependentUpon>UnauthAnimalKinds.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unauthorized\UnauthAnimals.xaml.cs">
+      <DependentUpon>UnauthAnimals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unauthorized\UnauthAviaries.xaml.cs">
+      <DependentUpon>UnauthAviaries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unauthorized\UnauthAviaryTypes.xaml.cs">
+      <DependentUpon>UnauthAviaryTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unauthorized\UnauthInventories.xaml.cs">
+      <DependentUpon>UnauthInventories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unauthorized\UnauthInventoryTypes.xaml.cs">
+      <DependentUpon>UnauthInventoryTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unauthorized\UnauthRations.xaml.cs">
+      <DependentUpon>UnauthRations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Updaters\UpdateAnimal.xaml.cs">
+      <DependentUpon>UpdateAnimal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Updaters\UpdateAnimalKind.xaml.cs">
+      <DependentUpon>UpdateAnimalKind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Updaters\UpdateAviary.xaml.cs">
+      <DependentUpon>UpdateAviary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Updaters\UpdateAviaryType.xaml.cs">
+      <DependentUpon>UpdateAviaryType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Updaters\UpdateInventory.xaml.cs">
+      <DependentUpon>UpdateInventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Updaters\UpdateRation.xaml.cs">
+      <DependentUpon>UpdateRation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Updaters\UpdateInventoryType.xaml.cs">
+      <DependentUpon>UpdateInventoryType.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\Animals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AnimalKinds.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\AnimalKindViewModel.cs" />
+    <Compile Include="ViewModel\AnimalViewModel.cs" />
+    <Compile Include="ViewModel\Creators\CreateAnimalViewModel.cs" />
+    <Compile Include="View\Animals.xaml.cs">
+      <DependentUpon>Animals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AnimalKinds.xaml.cs">
+      <DependentUpon>AnimalKinds.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\Authorize.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Aviaries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AviaryTypes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Creators\CreateAnimal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Creators\CreateAnimalKind.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Creators\CreateAviary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Creators\CreateAviaryType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Creators\CreateInventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Creators\CreateRation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Creators\CreateInventoryType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Inventories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InventoryTypes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Rations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Unauthorized\UnauthAnimalKinds.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Unauthorized\UnauthAnimals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Unauthorized\UnauthAviaries.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Unauthorized\UnauthAviaryTypes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Unauthorized\UnauthInventories.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Unauthorized\UnauthInventoryTypes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Unauthorized\UnauthRations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Updaters\UpdateAnimal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Updaters\UpdateAnimalKind.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Updaters\UpdateAviary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Updaters\UpdateAviaryType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Updaters\UpdateInventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Updaters\UpdateRation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Updaters\UpdateInventoryType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

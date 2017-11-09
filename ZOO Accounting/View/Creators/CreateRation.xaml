@@ -1,0 +1,13 @@
+﻿<Window x:Class="ZOO_Accounting.View.Creators.CreateRation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавить рацион" Height="318.045" Width="294.361" ResizeMode="CanMinimize">
+    <Grid>
+        <Label Content="Название:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ингредиенты:" HorizontalAlignment="Left" Height="24" Margin="10,67,0,0" VerticalAlignment="Top" Width="91"/>
+        <TextBox Name="nameBox" HorizontalAlignment="Left" Height="26" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268"/>
+        <Button Name="cancelButton" Content="Отмена" HorizontalAlignment="Left" Height="28" Margin="195,247,0,0" VerticalAlignment="Top" Width="83" Click="cancelButton_Click"/>
+        <Button Name="OKButton" Content="ОК" HorizontalAlignment="Left" Height="28" Margin="105,247,0,0" VerticalAlignment="Top" Width="83" Click="OKButton_Click"/>
+        <TextBox Name="ingredientsBox" HorizontalAlignment="Left" Height="135" Margin="10,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268"/>
+    </Grid>
+</Window>

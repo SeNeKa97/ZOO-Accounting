@@ -1,0 +1,15 @@
+﻿<Window x:Class="ZOO_Accounting.View.Unauthorized.UnauthInventories"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Инвентарь" Height="312.539" Width="357.943" ResizeMode="CanMinimize">
+    <Grid>
+        <DataGrid ItemsSource="{Binding inventories}" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="248" Margin="10,10,0,0" VerticalAlignment="Top" Width="315">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=RegistryCode}" Header="Инвентарный номер"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=InventoryType}" Header="Тип инвентаря"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

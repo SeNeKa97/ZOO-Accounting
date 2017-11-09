@@ -1,0 +1,27 @@
+﻿<Window x:Class="ZOO_Accounting.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:comm="clr-namespace:ZOO_Accounting.Commands"
+        Title="ZOO Accounting" Height="300" Width="305">
+    <Window.CommandBindings>
+        <CommandBinding Command="comm:Commands.Exit" CanExecute="ExitCommand_CanExecute" Executed="ExitCommand_Executed" />
+        <CommandBinding Command="comm:Commands.Authorize" CanExecute="AuthorizeCommand_CanExecute" Executed="AuthorizeCommand_Executed" />
+    </Window.CommandBindings>
+    <Grid>
+        <Menu HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="292">
+            <MenuItem Header="Меню">
+                <MenuItem Name="authElement" Header="Login/Logout" Command="comm:Commands.Authorize"></MenuItem>
+                <Separator/>
+                <MenuItem Header="Выход"  Command="comm:Commands.Exit"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Button Name="animalsWindow" Tag="animal" Content="Таблица животных" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="272" Click="Click"/>
+        <Button Name="animalKindsWindow" Tag="animalKind" Content="Таблица видов животных" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="272" Click="Click"/>
+        <Button Name="rationsWindow" Tag="ration" Content="Таблица рационов" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="272" Click="Click"/>
+        <Button Name="inventoryWindow" Tag="inventory" Content="Таблица инвентаря" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Width="272" Click="Click"/>
+        <Button Name="inventoryTypeWindow" Tag="inventoryType" Content="Таблица видов инвентаря" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" Width="272" Click="Click"/>
+        <Button Name="aviaryTypeWindow" Tag="aviaryType" Content="Таблица типов вольеров" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Width="272" Click="Click"/>
+        <Button x:Name="aviaryWindow" Tag="aviary" Content="Таблица вольеров" HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top" Width="272" Click="Click"/>
+
+    </Grid>
+</Window>

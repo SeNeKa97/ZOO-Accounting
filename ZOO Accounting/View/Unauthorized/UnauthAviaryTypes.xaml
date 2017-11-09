@@ -1,0 +1,14 @@
+﻿<Window x:Class="ZOO_Accounting.View.Unauthorized.UnauthAviaryTypes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Типы вольеров" Height="317.021" Width="255.319" ResizeMode="CanMinimize">
+    <Grid>
+        <DataGrid x:Name="grid" ItemsSource="{Binding aviaryTypes}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.759,1.727" Height="249" Width="201">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Id"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

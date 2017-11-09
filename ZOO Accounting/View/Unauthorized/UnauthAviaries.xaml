@@ -1,0 +1,33 @@
+﻿<Window x:Class="ZOO_Accounting.View.Unauthorized.UnauthAviaries"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Вольеры" Height="306.702" Width="441.766" ResizeMode="CanMinimize">
+    <Grid>
+        <DataGrid x:Name="grid" ItemsSource="{Binding aviaries}" SelectionMode="Single" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Height="248" Width="158">
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <EventSetter Event="Control.MouseDoubleClick" Handler="Row_Click"/>
+                </Style>
+            </DataGrid.ItemContainerStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Code}" Header="Номер вольера"/>
+                <DataGridTextColumn Binding="{Binding Capacity}" Header="Ёмкость"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid ItemsSource="{Binding animals, Mode=TwoWay}" x:Name="animalsGrid" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="228" Margin="187,26,0,0" VerticalAlignment="Top" Width="110">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Имя"/>
+                <DataGridTextColumn Binding="{Binding RegistryCode}" Header="Рег.код"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid ItemsSource="{Binding inventories, Mode=TwoWay}" x:Name="inventoriesGrid" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="228" Margin="302,26,0,0" VerticalAlignment="Top" Width="107">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding RegistryCode}" Header="Инв. номер"/>
+                <DataGridTextColumn Binding="{Binding InventoryType}" Header="Тип"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Животные:" HorizontalAlignment="Left" Margin="187,0,0,0" VerticalAlignment="Top"/>
+        <Label Content="Инвентарь:" HorizontalAlignment="Left" Margin="302,0,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

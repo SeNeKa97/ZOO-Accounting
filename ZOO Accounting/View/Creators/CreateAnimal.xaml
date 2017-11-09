@@ -1,0 +1,32 @@
+﻿<Window x:Class="ZOO_Accounting.View.Creators.CreateAnimal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ZOO_Accounting"
+        xmlns:helpers="clr-namespace:ZOO_Accounting.Helpers"
+        xmlns:enums="clr-namespace:ZOO_Accounting.Model.Entities"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Добавить животное" Height="372.34" Width="300">
+    <Grid>
+        <TextBox Name="animalName" HorizontalAlignment="Left" Height="23" Margin="22,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <TextBox Name="registryCode" HorizontalAlignment="Left" Height="24" Margin="22,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <ComboBox Name="animalKindId" ItemsSource="{Binding animalKinds}" HorizontalAlignment="Left" Margin="22,133,0,0" VerticalAlignment="Top" Width="120"
+                  SelectedValue="{Binding Id, Mode=TwoWay}"
+                  SelectedValuePath="Id"
+                  DisplayMemberPath="Name"/>
+        <DatePicker Name="animalBirthDate" SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Left" Margin="22,179,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="ration" ItemsSource="{Binding animalRations}" HorizontalAlignment="Left" Margin="22,271,0,0" VerticalAlignment="Top" Width="120"
+                  SelectedValue="{Binding Id, Mode=TwoWay}"
+                  SelectedValuePath="Id"
+                  DisplayMemberPath="Name"/>
+        <ComboBox Name="animalSex" ItemsSource="{Binding Source={helpers:EnumBindingSourceExtension {x:Type enums:Sex}}}" Height="24" HorizontalAlignment="Left" Margin="22,226,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Кличка:" HorizontalAlignment="Left" Margin="22,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Рег. код:" HorizontalAlignment="Left" Margin="22,58,0,0" VerticalAlignment="Top"/>
+        <Label Content="Вид:" HorizontalAlignment="Left" Margin="22,107,0,0" VerticalAlignment="Top"/>
+        <Label Content="Дата рождения:" HorizontalAlignment="Left" Margin="22,153,0,0" VerticalAlignment="Top"/>
+        <Label Content="Пол:" HorizontalAlignment="Left" Margin="22,203,0,0" VerticalAlignment="Top"/>
+        <Label Content="Рацион:" HorizontalAlignment="Left" Margin="22,245,0,0" VerticalAlignment="Top"/>
+        <Button Name="cancelButton" Content="Отмена" HorizontalAlignment="Left" Margin="207,310,0,0" VerticalAlignment="Top" Width="75" Click="cancelButton_Click"/>
+        <Button Name="okButton" Content="ОК" HorizontalAlignment="Left" Margin="116,310,0,0" VerticalAlignment="Top" Width="75" Click="okButton_Click"/>
+
+    </Grid>
+</Window>

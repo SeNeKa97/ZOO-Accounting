@@ -1,0 +1,21 @@
+﻿<Window x:Name="Animals1" x:Class="ZOO_Accounting.View.Unauthorized.UnauthAnimals"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:ZOO_Accounting.ViewModel;assembly=ZOO_Accounting"
+        Title="Животные" Height="316.077" Width="543.139" ResizeMode="CanMinimize">
+
+    <Grid Margin="0,0,2,2">
+        <DataGrid Name="grid" SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding animals}" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="250" Width="498">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кличка" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Рег. код" Binding="{Binding RegistryCode}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Вид" Binding="{Binding AnimalKind}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding BirthDate}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Sex}"></DataGridTextColumn>
+                <DataGridTextColumn  Header="Рацион" Binding="{Binding Ration}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
